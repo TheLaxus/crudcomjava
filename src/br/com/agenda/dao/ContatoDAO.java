@@ -69,12 +69,16 @@ public class ContatoDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			if(statement != null) {
-				statement.close();
-			}
-			
-			if(conn != null) {
-				conn.close();
+			try {
+				if(statement != null) {
+					statement.close();
+				}
+				
+				if(conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}
