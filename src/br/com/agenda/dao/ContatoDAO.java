@@ -3,6 +3,7 @@ package br.com.agenda.dao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,38 @@ public class ContatoDAO {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void update(Contato contato) throws SQLException {
+		String sqlQuery = "UPDATE contatos SET nome = ?, idade = ?, dataCadastro = ?" + "WHERE id = ?";
+		
+		Connection conn = null;
+		PreparedStatement statement = null;
+		
+		try {
+			conn = ConnectionMysql.createConnectionToMySQL();
+			
+			statement = (PreparedStatement) conn.prepareStatement(sqlQuery);
+			
+			statement.setString(1, contato.getNome());
+			statement.setInt(2, contato.getIdade());
+			statement.setDate(3, new Date(contato.getDataCadastro().getTime()));
+			statement.setInt(4, contato.getId());
+			
+			statement.execute();
+			
+			System.out.println("Dados atualizados");
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(statement != null) {
+				statement.close();
+			}
+			
+			if(conn != null) {
+				conn.close();
 			}
 		}
 	}
