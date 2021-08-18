@@ -12,8 +12,8 @@ public class Main {
 		ContatoDAO contatoDAO = new ContatoDAO();
 
 		Contato contato = new Contato();
-		contato.setNome("Lucas Barbosa");
-		contato.setIdade(19);
+		contato.setNome("Flavio Alexandre");
+		contato.setIdade(55);
 		contato.setDataCadastro(new Date());
 		
 		//contatoDAO.save(contato);
@@ -24,7 +24,9 @@ public class Main {
 		c1.setDataCadastro(new Date());
 		c1.setId(1);
 		
-		contatoDAO.update(c1);
+		//contatoDAO.update(c1);
+		
+		contatoDAO.deleteByID(5);
 		
 		//Mostrar registros<T>
 		
