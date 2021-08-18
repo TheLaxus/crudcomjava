@@ -13,7 +13,7 @@ public class Contato {
         return id;
     }
 
-    public void setId() {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -21,7 +21,7 @@ public class Contato {
         return nome;
     }
 
-    public void setNome(String string) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -37,7 +37,7 @@ public class Contato {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date date) {
+    public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 

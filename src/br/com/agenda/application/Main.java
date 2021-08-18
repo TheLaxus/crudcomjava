@@ -16,5 +16,11 @@ public class Main {
 		contato.setDataCadastro(new Date());
 		
 		contatoDAO.save(contato);
+		
+		//Mostrar registros<T>
+		
+		for(Contato c : contatoDAO.getContatos()) {
+			System.out.println("Contatos: " + c.getNome() + " Idade: " + c.getIdade() + " Cadastro: " + c.getDataCadastro());
+		}
 	}
 }
