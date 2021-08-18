@@ -24,6 +24,7 @@ public class ContatoDAO {
 			statement.setDate(3, new Date(contato.getDataCadastro().getTime()));
 			statement.execute();
 			
+			System.out.println("Executado com sucesso");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
